@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Proyecto2.MainPage"
+             BackgroundColor="White">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="DsStackLayout" TargetType="StackLayout">
+                <Setter Property="Margin" Value="5,10"/>
+                <Setter Property="VerticalOptions" Value="StartAndExpand"/>
+            </Style>
+
+            <Style x:Key="DsButtonFlotante" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="CornerRadius" Value="50"/>
+                <Setter Property="BorderColor" Value="#01ADBA"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="CornerRadius" Value="40"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="HeightRequest" Value="60"/>
+                <Setter Property="WidthRequest" Value="60"/>
+            </Style>
+            <Style x:Key="entryFormStyle" TargetType="Entry">
+                <Setter Property="Margin" Value="10,0"/>
+                <Setter Property="FontFamily" Value="SansLight"/>
+                <Setter Property="FontSize" Value="18"/>
+
+
+                <Setter Property="PlaceholderColor" Value="Gray"/>
+                <Setter Property="TextColor" Value="#423F3E"/>
+            </Style>
+
+            <Style x:Key="frameStyle" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="Padding" Value="3"/>
+                <Setter Property="HasShadow" Value="True"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="VerticalOptions" Value="StartAndExpand"/>
+                <Setter Property="BorderColor" Value="#E7E4E3"/>
+                <Setter Property="Margin" Value="20,5"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout>
+        <StackLayout Padding="20">
+             <Image Grid.Row="0" Source="https://www.uth.hn/wp-content/uploads/2019/12/logo-1.png"></Image>
+         </StackLayout>
+
+        <ScrollView>
+            <StackLayout Visual="Material">
+                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                    <Button IsVisible="true" x:Name="buttoncamera" Clicked="buttoncamera_Clicked" Text="tomese una Selfie"   HorizontalOptions="Center"  
+                       VerticalOptions="Center"/>
+                   
+                </StackLayout>
+                <StackLayout Margin="10" Orientation="Vertical">
+                    <Grid>
+                        <Image IsVisible="false"  HeightRequest="200" x:Name="imagefile" Grid.Row="0" ></Image>
+                    </Grid>
+                </StackLayout>
+                <StackLayout  Padding="20">
+                    
+                    <Frame Style="{StaticResource frameStyle}">
+                        <Entry Style="{StaticResource entryFormStyle}"
+                        Keyboard="Plain"
+                        Placeholder="Digite su nombre"
+                        x:Name="nombre" />
+                    </Frame>
+                    <Frame Style="{StaticResource frameStyle}">
+                        <Entry Style="{StaticResource entryFormStyle}"
+                        Keyboard="Plain"
+                        Placeholder="Describa La Ubicacion"
+                        x:Name="descripcion_larga" />
+                    </Frame>
+
+                    <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal" Padding="0,50,0,0">
+                        <Button Margin="0,0,0,10" HeightRequest="50" x:Name="Salvar" Clicked="Salvar_Clicked"  Text="Guardar Registro"></Button>
+                        <Button  Margin="0,0,0,10" HeightRequest="50"  Clicked="Button_Clicked_1"  Visual="Material" Text="Ver Registros"></Button>
+                    </StackLayout>
+
+                    <ActivityIndicator x:Name="refresc" Color="Green" IsRunning="False">
+
+                    </ActivityIndicator>
+                </StackLayout>
+            </StackLayout>
+
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

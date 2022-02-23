@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Proyecto2.views.Ubicaciones"
+              BackgroundColor="White">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Modificar" Icon="edit_user.png"
+         x:Name="actualizar" Clicked="actualizar_Clicked"/>
+
+        <ToolbarItem Text="Eliminar" Icon="delete_user.png"
+         x:Name="Eliminar" Clicked="Eliminar_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout  Padding="20">
+                <ListView BackgroundColor="White" Grid.Row="2" SeparatorVisibility="Default" HasUnevenRows="True" ItemSelected="lista_ItemSelected" x:Name="lista">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Image WidthRequest="100" HeightRequest="100"  Source="{Binding fotografia,Converter={StaticResource bisc}}"/>
+                                    <StackLayout Orientation="Vertical">
+                                        <Label TextColor="Black"  Text="{Binding id}" />
+                                        <Label TextColor="Black" Text="{Binding nombre}" />
+                                        <Label TextColor="Black" Text="{Binding descripcion}" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+
+                        
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <Grid HorizontalOptions="CenterAndExpand">
+                    <Label x:Name="id" IsVisible="false"></Label>
+                    <Label x:Name="nombre" IsVisible="false"></Label>
+                    <Label x:Name="descripcion" IsVisible="false"></Label>
+                </Grid>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
